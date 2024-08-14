@@ -17,8 +17,7 @@ This program is designed to analyze ETKAC (Erythrocyte Transketolase Activity Co
 
 ## Installation
 1. Ensure Python 3.x is installed on your system.
-2. Install required libraries using pip:
-   i. pip install pandas openpyxl numpy
+2. Install required libraries using pip: "pip install pandas openpyxl numpy"
 3. Download the ETKAC Analysis program script.
 
 ## Usage
