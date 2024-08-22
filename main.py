@@ -233,8 +233,8 @@ def exportFunction():
     exportFrame = exportFrame._append(blankAverageDisplayGrid, ignore_index=True)
 
     summaryHeaderGrid = [['',''],
-                         ['Software Version','2.0'],
-                         ['Last Updated','8/7/2024'],
+                         ['Software Version','2.1'],
+                         ['Last Updated','8/22/2024'],
                          ['Date of ETKAC Expiriment', experimentDate],
                          ['Data of Analysis', currentTime.strftime('%m/%d/%Y')],
                          ['Tech Name', tech_name],
@@ -303,7 +303,7 @@ def exportFunction():
             tppCvText = ''
             patientSummaryGrid[0].append('✓')
 
-        basalGrid = [[patient, round(abs(patientNormalizedTrisAvg),4), '', f"=(B{patientCount+1}*1404.4501)/C{patientCount+1}"]]
+        basalGrid = [[patient, abs(patientNormalizedTrisAvg), '', f"=(B{patientCount+1}*1404.4501)/C{patientCount+1}"]]
         basalExportFrame = basalExportFrame._append(basalGrid, ignore_index=True)
         summaryFrame = summaryFrame._append(patientSummaryGrid, ignore_index=True)
 
@@ -334,7 +334,7 @@ def exportFunction():
     # Exporting to excel file
     summaryFrame = summaryFrame.rename(columns={exportFrame.columns[0]: experimentName, exportFrame.columns[1]: experimentDate, exportFrame.columns[2]: '', exportFrame.columns[3]: '', exportFrame.columns[4]: ''})
     exportFrame = exportFrame.rename(columns={exportFrame.columns[0]: experimentName, exportFrame.columns[1]: experimentDate, exportFrame.columns[2]: '', exportFrame.columns[3]: '', exportFrame.columns[4]: ''})
-    basalExportFrame = basalExportFrame.rename(columns={basalExportFrame.columns[0]: "Sample", basalExportFrame.columns[1]: "Avg Tris", basalExportFrame.columns[2]: "Hgb g/DL", basalExportFrame.columns[3]: "Basal Activity"})
+    basalExportFrame = basalExportFrame.rename(columns={basalExportFrame.columns[0]: "Sample", basalExportFrame.columns[1]: "Avg Tris", basalExportFrame.columns[2]: "Hgb g/dL", basalExportFrame.columns[3]: "Basal Activity"})
     
     try:
         with pd.ExcelWriter(export_path, engine="openpyxl") as writer:
