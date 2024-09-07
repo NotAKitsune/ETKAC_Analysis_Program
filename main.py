@@ -192,6 +192,9 @@ def exportFunction():
             numIntervals = Decimal(20)
 
             for i in range(40, 60):
+                if(data[row][col][i]=="?????" or data[row][col][i + 1]=="?????"):
+                    data[row][col][i]=0
+                    data[row][col][i + 1]=0
                 totalChange += Decimal(str(data[row][col][i + 1])) - Decimal(str(data[row][col][i]))
 
             averageRatesOfChange[row][col] = totalChange/numIntervals
@@ -233,8 +236,8 @@ def exportFunction():
     exportFrame = exportFrame._append(blankAverageDisplayGrid, ignore_index=True)
 
     summaryHeaderGrid = [['',''],
-                         ['Software Version','2.1'],
-                         ['Last Updated','8/22/2024'],
+                         ['Software Version','2.2'],
+                         ['Last Updated','9/7/2024'],
                          ['Date of ETKAC Expiriment', experimentDate],
                          ['Data of Analysis', currentTime.strftime('%m/%d/%Y')],
                          ['Tech Name', tech_name],
